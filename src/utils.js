@@ -12,7 +12,8 @@ let constructComplexArray = function(signal){
   var bufferSize = complexSignal.real.length;
 
   if(memoizedZeroBuffers[bufferSize] === undefined){
-    memoizedZeroBuffers[bufferSize] = Array.apply(null, Array(bufferSize)).map(Number.prototype.valueOf, 0);
+   // memoizedZeroBuffers[bufferSize] = Array.apply(null, Array(bufferSize)).map(Number.prototype.valueOf, 0);
+    memoizedZeroBuffers[bufferSize] = new Array(bufferSize).fill(0);
   }
 
   complexSignal.imag = memoizedZeroBuffers[bufferSize].slice();
